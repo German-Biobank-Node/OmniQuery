@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://schema.samply.de/ccp/Query"
+    xmlns="http://schema.samply.de/ccp/Query"
+    xmlns:samply_mdrkey="http://schema.samply.de/ccp/MdrKey"
+    xmlns:samply_attribute="http://schema.samply.de/ccp/Attribute"
+    xmlns:samply_range_attribute="http://schema.samply.de/ccp/RangeAttribute"
+    xmlns:samply_multivalue_attribute="http://schema.samply.de/ccp/MultivalueAttribute"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    version="1.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.1">
+    <xs:import namespace="http://schema.samply.de/ccp/MdrKey" schemaLocation="http://schema.samply.de/ccp/MdrKey.xsd" />
+    <xs:import namespace="http://schema.samply.de/ccp/Attribute" schemaLocation="http://schema.samply.de/ccp/Attribute.xsd" />
+    <xs:import namespace="http://schema.samply.de/ccp/RangeAttribute" schemaLocation="http://schema.samply.de/ccp/RangeAttribute.xsd" />
+    <xs:import namespace="http://schema.samply.de/ccp/MultivalueAttribute" schemaLocation="http://schema.samply.de/ccp/MultivalueAttribute.xsd" />
+    <xs:element name="Order">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="Ascending" type="xs:boolean" minOccurs="1" maxOccurs="1" default="true">
+                </xs:element>
+                <xs:element ref="samply_mdrkey:MdrKey" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="OrderBy">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Order" minOccurs="1" maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Query">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="Where" minOccurs="1" maxOccurs="1">
+                </xs:element>
+                <xs:element ref="OrderBy" minOccurs="0" maxOccurs="1">
+                </xs:element>
+                <xs:element ref="GroupBy" minOccurs="0" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+            <xs:attribute name="id" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="View">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Query" minOccurs="1" maxOccurs="1">
+                </xs:element>
+                <xs:element ref="ViewFields" minOccurs="0" maxOccurs="1">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ViewFields">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="samply_mdrkey:MdrKey" minOccurs="1" maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="IsNull">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_mdrkey:MdrKey" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Where">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="ConditionType" />
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="And">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="ConditionType" />
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Or">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="ConditionType" />
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="ConditionType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="And" />
+            <xs:element ref="Eq" />
+            <xs:element ref="Like" />
+            <xs:element ref="Geq" />
+            <xs:element ref="Gt" />
+            <xs:element ref="IsNotNull" />
+            <xs:element ref="IsNull" />
+            <xs:element ref="Leq" />
+            <xs:element ref="Lt" />
+            <xs:element ref="Neq" />
+            <xs:element ref="Or" />
+            <xs:element ref="In" />
+            <xs:element ref="Between" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="Like">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Gt">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Geq">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Eq">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Leq">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Lt">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Neq">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_attribute:Attribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="IsNotNull">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_mdrkey:MdrKey" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="In">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_multivalue_attribute:MultivalueAttribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Between">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_range_attribute:RangeAttribute" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GroupBy">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="samply_mdrkey:MdrKey" minOccurs="1" maxOccurs="1">
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:annotation>
+        <xs:appinfo>
+            <jxb:schemaBindings>
+                <jxb:package name="de.samply.share.model.ccp" />
+            </jxb:schemaBindings>
+        </xs:appinfo>
+    </xs:annotation>
+</xs:schema>

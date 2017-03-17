@@ -1,0 +1,54 @@
+<ns3:Query xmlns:ns2="http://schema.samply.de/osse/MdrKey"
+	xmlns:ns4="http://schema.samply.de/osse/Value" xmlns:ns3="http://schema.samply.de/osse/Query"
+	xmlns:ns6="http://schema.samply.de/osse/MultivalueAttribute" xmlns:ns5="http://schema.samply.de/osse/Attribute"
+	xmlns:ns8="http://schema.samply.de/osse/Container" xmlns:ns7="http://schema.samply.de/osse/RangeAttribute"
+	xmlns:ns13="http://schema.samply.de/osse/Inquiry" xmlns:ns9="http://schema.samply.de/osse/Entity"
+	xmlns:ns12="http://schema.samply.de/osse/QueryResultStatistic"
+	xmlns:ns11="http://schema.samply.de/osse/Sample" xmlns:ns10="http://schema.samply.de/osse/Case"
+	xmlns:ns17="http://schema.samply.de/osse/Patient" xmlns:ns16="http://schema.samply.de/osse/RorMetareg"
+	xmlns:ns15="http://schema.samply.de/osse/QueryResult" xmlns:ns14="http://schema.samply.de/osse/Error">
+	<ns3:Where>
+                <ns3:Or>
+                    <ns3:And>
+                        <ns3:Like>
+                                <ns5:Attribute>
+                                        <ns2:MdrKey>C1</ns2:MdrKey>
+                                        <ns4:Value>%C71.%</ns4:Value>
+                                </ns5:Attribute>
+                        </ns3:Like>
+                        <ns3:Geq>
+                                <ns5:Attribute>
+                                        <ns2:MdrKey>C2</ns2:MdrKey>
+                                        <ns4:Value>55</ns4:Value>
+                                </ns5:Attribute>
+                        </ns3:Geq>
+                    </ns3:And>
+                    <ns3:Eq>
+                            <ns5:Attribute>
+                                    <ns2:MdrKey>C3</ns2:MdrKey>
+                                    <ns4:Value>9382/3</ns4:Value>
+                            </ns5:Attribute>
+                    </ns3:Eq>
+                    <ns3:Neq>
+                            <ns5:Attribute>
+                                    <ns2:MdrKey>C4</ns2:MdrKey>
+                                    <ns4:Value>9391/3</ns4:Value>
+                            </ns5:Attribute>
+                    </ns3:Neq>
+                    <ns3:And>
+                        <ns3:Gt>
+                                <ns5:Attribute>
+                                        <ns2:MdrKey>C5</ns2:MdrKey>
+                                        <ns4:Value>50</ns4:Value>
+                                </ns5:Attribute>
+                        </ns3:Gt>
+                        <ns3:Lt>
+                                <ns5:Attribute>
+                                        <ns2:MdrKey>C6</ns2:MdrKey>
+                                        <ns4:Value>60</ns4:Value>
+                                </ns5:Attribute>
+                        </ns3:Lt>
+                    </ns3:And>
+                </ns3:Or>
+	</ns3:Where>
+</ns3:Query>

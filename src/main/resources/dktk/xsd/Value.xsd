@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:samply_value="http://schema.samply.de/ccp/Value" targetNamespace="http://schema.samply.de/ccp/Value"
+    version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.1">
+    <xs:element name="Value" type="xs:string"/>
+    <xs:element name="LowerBound" substitutionGroup="samply_value:Value" />
+    <xs:element name="UpperBound" substitutionGroup="samply_value:Value" />
+    <xs:annotation>
+        <xs:appinfo>
+            <jxb:schemaBindings>
+                <jxb:package name="de.samply.share.model.ccp" />
+            </jxb:schemaBindings>
+        </xs:appinfo>
+    </xs:annotation>
+</xs:schema>
